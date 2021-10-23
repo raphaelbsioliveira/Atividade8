@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+</html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Jogo</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .boxBoy {
+            top: 40%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            border: 1px solid black;
+            position: absolute;
+            height: 172px;
+            width: 150px;
+        }
+
+        .boxBoy:hover {
+            border: 1px solid;
+            box-shadow: 1px 0px 20px 20px #FFD700;
+        }
+
+        .boxBoy p {
+            text-align: center;
+            color: white;
+        }
+
+        button {
+            color: #778899;
+            margin-left: 380px;
+            padding: 10px 15px;
+        }
+    </style>
+    <script>
+        function changeBoy(nameImg, msg) {
+            document.getElementById("imgBoy").src = `img/${nameImg}.png`
+            if (nameImg == "alegre") {
+                nome = prompt("Qual é o seu nome?!");
+                msg = `${nome}, voce quer brincar comigo?!`;
+            }
+            document.getElementById("txtBoy").innerHTML = msg;
+        }
+
+        function sair() {
+
+            if (confirm('Deseja realizamente sair do jogo?')) {
+                window.location.replace('index.html');
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="boxBoy">
+        <img src="img/Pensativo.png" id="imgBoy" alt="Desenho com rosto pensativo" height="169" width="145"
+            onmouseenter="changeBoy('Assustado','O que voce quer!?')"
+            onmousedown="changeBoy('Nervoso','Nao me aperte!')" onmouseup="changeBoy('alegre','')"
+            onmouseout="changeBoy('Pensativo', 'ZZZZZZZZZZZZZ!')">
+        <br />
+        <br />
+        <p id="txtBoy"><b> ZZZZZZZZ! </b></p>
+        <Button onClick="sair()">
+            SAIR
+        </Button>
+    </div>
+</body>
+</html>
